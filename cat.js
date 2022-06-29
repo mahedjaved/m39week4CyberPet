@@ -1,0 +1,52 @@
+const { Animal } = require('./animal.js');
+
+class Cat extends Animal {
+    constructor(name) {
+        super(name);
+        this.name = name;
+    }
+    play() {
+        this.nutrition -= 20;
+        this.hydration -= 20;
+        this.excitement += 5;
+        this.health += 5;
+        this.stamina -= 5;
+
+        console.log(`${this.name} is playing with a ball of yarn!`);
+
+        this.update();
+        return this;
+    }
+
+    feed() {
+        this.health += 5;
+        this.nutrition += 5;
+
+        console.log(`${this.name} is eating some tuna!`);
+
+        this.update();
+        return this;
+    }
+
+    drink() {
+        this.health += 5;
+        this.hydration += 5;
+
+        console.log(`${this.name} is drinking some milk!`);
+
+        this.update();
+        return this;
+    }
+
+    strokeCat() {
+        this.excitement += 5;
+        this.stamina += 5;
+
+        console.log(`You're stroking ${this.name}.`);
+        this.update();
+        return this;
+    }
+
+}
+
+module.exports = { Cat };
