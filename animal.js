@@ -3,6 +3,7 @@
 //     //     this.health = 50;
 //     }
 
+const { start } = require('./game.js');
 
 
 class Animal {
@@ -48,6 +49,42 @@ class Animal {
         }
         if (this.stamina < 0) {
             this.stamina = 0;
+        }
+        /// WARNINGS
+        if (this.health < 15) {
+            console.log(`${this.name} is in danger of loosing too much health. Feed them or give them some water.`)
+        }
+        if (this.nutrition < 15) {
+            console.log(`${this.name} is getting very hungry. Feed them.`)
+        }
+        if (this.hydration < 15) {
+            console.log(`${this.name} is getting dehydrated. Give them some water.`)
+        }
+        if (this.excitement < 15) {
+            console.log(`${this.name} is getting very bored. Try playing with them, or giving them some exercise.`)
+        }
+        if (this.stamina < 15) {
+            console.log(`${this.name} is loosing a lot of stamina. Maybe let them rest a little.`)
+        }
+        /// DEATH RANGE
+        if (this.nutrition === 0 && this.hydration === 0) {
+            console.log(`${this.name} is dead. They got too hungry and too dehydrated.`)
+            start();
+        }
+        if (this.health = 0) {
+            console.log(`${this.name} is dead. You let their health fall too low.`);
+        }
+        if (this.nutrition = 0) {
+            console.log(`${this.name} is dead. You let them get too hungry.`);
+        }
+        if (this.hydration = 0) {
+            console.log(`${this.name} is dead. They died of dehydration.`);
+        }
+        if (this.excitement = 0) {
+            console.log(`${this.name} is dead. They died of boredom.`);
+        }
+        if (this.stamina = 0) {
+            console.log(`${this.name} is dead. Their stamina got too low and they died of exhaustion.`);
         }
 
     }

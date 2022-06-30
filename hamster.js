@@ -8,8 +8,8 @@ class Hamster extends Animal {
         // this.hunger = 0;
     }
     play() {
-        this.nutrition -= 5;
-        this.thirst -= 5;
+        this.nutrition -= 20;
+        this.hydration -= 20;
         this.excitement += 5;
         this.health += 5;
         this.stamina -= 5;
@@ -22,6 +22,7 @@ class Hamster extends Animal {
     feed() {
         this.health += 5;
         this.nutrition += 5;
+        this.excitement -= 5;
 
         console.log(`${this.name} is loving the leafy greens!`);
         this.update();
@@ -31,6 +32,7 @@ class Hamster extends Animal {
     drink() {
         this.health += 5;
         this.hydration += 5;
+        this.excitement -= 5;
 
         console.log(`${this.name} is drinking some water!`);
         this.update();

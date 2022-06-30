@@ -22,6 +22,7 @@ class Dog extends Animal {
     feed() {
         this.health += 5;
         this.nurition - + 5;
+        this.excitement - + 5;
 
         console.log(`${this.name} is enjoying some dog treats!`);
         this.update();
@@ -32,8 +33,28 @@ class Dog extends Animal {
     drink() {
         this.health += 5;
         this.hydration - + 5;
+        this.excitement - + 5;
 
         console.log(`${this.name} is drinking some water!`);
+        this.update();
+
+        return this;
+    }
+
+    speak() {
+        this.excitement += 5;
+        this.stamina -= 5;
+
+        console.log(`${this.name} is barking at you enthusiastically`);
+        this.update();
+
+        return this;
+    }
+
+    sit() {
+        this.stamina += 5;
+
+        console.log(`${this.name} is sitting down and questioning your next command`);
         this.update();
 
         return this;

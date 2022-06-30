@@ -21,6 +21,7 @@ class Cat extends Animal {
     feed() {
         this.health += 5;
         this.nutrition += 5;
+        this.excitement -= 5;
 
         console.log(`${this.name} is eating some tuna!`);
 
@@ -31,22 +32,13 @@ class Cat extends Animal {
     drink() {
         this.health += 5;
         this.hydration += 5;
+        this.excitement -= 5;
 
         console.log(`${this.name} is drinking some milk!`);
 
         this.update();
         return this;
     }
-
-    strokeCat() {
-        this.excitement += 5;
-        this.stamina += 5;
-
-        console.log(`You're stroking ${this.name}.`);
-        this.update();
-        return this;
-    }
-
 }
 
 module.exports = { Cat };

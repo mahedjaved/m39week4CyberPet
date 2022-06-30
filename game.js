@@ -1,17 +1,35 @@
-const inquirer = require('inquirer');
-// N.B do we need the line below ?
-// const { Animal } = require("./animal.js");
+// OLD CODE !!
+const { Animal } = require("./animal.js");
 const { Cat } = require("./cat.js");
 const { Dog } = require("./dog.js");
 const { Hamster } = require("./hamster.js");
 
+// // core import error module
+// class ImportError extends Error { };
+
+
+// // function for handling local module import errors
+// const moduleImport = async (pathToModule) => {
+//     try {
+//         // wait for the user to finish module imports
+//         return await require(pathToModule)
+//     } catch (impError) {
+//         throw new ImportError(`[warning] Unidentified module ${pathToModule} import ignored`)
+//     }
+// }
+
+// core inquirer module
+const inquirer = require('inquirer');
+
+// variable myPet declaration
 let myPet;
 
+// the game start function
 async function start() {
     const { petType } = await inquirer.prompt({
         type: 'list',
         name: 'petType',
-        message: "What type of pet would you like ? Please choose from bellow: ",
+        message: "What type of pet would you like ? Please choose from below: ",
         choices: [
             {
                 key: "a",
@@ -26,8 +44,8 @@ async function start() {
             },
             {
                 key: "c",
-                name: "Rabbit",
-                value: "rabbit",
+                name: "Hamster",
+                value: "hamster",
 
             }
         ],
@@ -40,14 +58,23 @@ async function start() {
     });
 
     if (petType === 'cat') myPet = new Cat(petName);
-    else if (petType === 'dog') myPet = new Dog(petName);
-    else if (petType === 'rabbit') myPet = new Rabbit(petName);
+
+
+    // else if (
+    //     petType === 'dog',
+    //     dogChoice(),
+
+    // )
+    //     myPet = new Dog(petName);
+
+
+    else if (petType === 'hamster') myPet = new Hamster(petName);
+
 
     userChoice();
 }
 
-
-
+// decides the choice of actions of the user
 async function userChoice() {
 
     const { choice } = await inquirer.prompt({
@@ -95,25 +122,31 @@ async function userChoice() {
     else if (choice === 'petStatus') await myPet.petStatus();
     else if (choice === 'quitGame') await myPet.quitGame();
 
-    // if (this.health > 50) this.health = 50;
-    // if (this.hy > 50) this.health = 50;
-    // if (this.health > 50) this.health = 50;
-    // if (this.health > 50) this.health = 50;
-
-
+    userChoice();
     // display status for debugging
     // myPet.petStatus();
 
-
-    userChoice();
 }
 
 
-// Test the game
+
+// }
+
+
+// the main function
+// async function main() {
+// const { Cat } = await moduleImport("./cat.js");
+// const { Dog } = await moduleImport("./dog.js");
+// const { Hamster } = await moduleImport("./hamster.js");
+//     start(Cat, Dog, Hamster);
+
+// }
+
+// call to the main function
 start();
 
 
-
+module.exports = { start }
 
 
 
